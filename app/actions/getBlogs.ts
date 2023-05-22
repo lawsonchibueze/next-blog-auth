@@ -3,7 +3,7 @@ import prisma from "../lib/prismadb";
 export default async function getBlogs() {
   try {
     const blogs = await prisma.blog.findMany({
-      orderby: {
+      orderBy: {
         createdAt: "desc",
       },
     });
@@ -11,7 +11,6 @@ export default async function getBlogs() {
       return {
         ...blog,
         createdAt: blog.createdAt.toISOString(),
-        updatedAt: blog.updatedAt.toISOString(),
       };
     });
     return safeBlogs;

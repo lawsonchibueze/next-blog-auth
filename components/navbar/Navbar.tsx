@@ -17,7 +17,7 @@ export default function Navbar({ currentUser }: UserMenuProps) {
 
         <div className="flex gap-4">
           <Link href="/">Home</Link>
-          <Link href="/create">Create</Link>
+          <Link href={`${currentUser ? "/create" : "/register"}`}>Create</Link>
           {currentUser ? (
             <button onClick={() => signOut()}>Sign out</button>
           ) : (
